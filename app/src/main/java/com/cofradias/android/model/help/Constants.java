@@ -20,4 +20,8 @@ public class Constants {
     public static final class IntroPhoto {
         public static final String PHOTO_URL = "https://raw.githubusercontent.com/allaria/CofradiasBilbao/master/app/src/main/res/imagenes/introPhoto2.jpg";
     }
+
+    public static final class VerMapa {
+        public static final String IMG_URL = "https://raw.githubusercontent.com/allaria/CofradiasBilbao/master/app/src/main/res/imagenes/verMapa.png";
+    }
 }

@@ -149,6 +149,12 @@
                 style="@style/texto" />
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/accessMap"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right" />
+
     </LinearLayout>
 
 </ScrollView>

@@ -4,17 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cofradias.android.model.Cofradia;
 import com.cofradias.android.model.help.Constants;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by alaria on 21/04/2016.
  */
 public class DetailActivity extends AppCompatActivity {
 
-    //private ImageView mPhoto;
+    private ImageView mVerMapa;
     private TextView mName, mFundacion, mSede, mPasos, mTexto, mHernamoAbad, mTunica;
 
     @Override
@@ -27,6 +31,17 @@ public class DetailActivity extends AppCompatActivity {
         Cofradia cofradia = (Cofradia) intent.getSerializableExtra(Constants.REFERENCE.COFRADIA);
 
         configViews();
+
+        mVerMapa = (ImageView) findViewById(R.id.accessMap);
+        Picasso.with(getApplicationContext()).load(Constants.VerMapa.IMG_URL).into(mVerMapa);
+        mVerMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DetailActivity.this,
+                        "The favorite list would appear on clicking this icon",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
 
         mName.setText(cofradia.getNombreCofradia());
         mFundacion.setText(String.valueOf(cofradia.getFundacion()));
