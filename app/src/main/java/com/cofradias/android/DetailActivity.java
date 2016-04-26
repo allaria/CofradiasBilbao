@@ -15,7 +15,7 @@ import com.cofradias.android.model.help.Constants;
 public class DetailActivity extends AppCompatActivity {
 
     //private ImageView mPhoto;
-    private TextView mName, mFundacion, mSede, mPasos;
+    private TextView mName, mFundacion, mSede, mPasos, mTexto, mHernamoAbad, mTunica;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,8 +32,10 @@ public class DetailActivity extends AppCompatActivity {
         mFundacion.setText(String.valueOf(cofradia.getFundacion()));
         mSede.setText(cofradia.getSede());
         mPasos.setText(String.valueOf(cofradia.getNumeroPasos()));
+        mTexto.setText(cofradia.getTexto());
+        mHernamoAbad.setText(cofradia.getHermanoAbad());
+        mTunica.setText(cofradia.getTunica());
 
-        //mPrice.setText(String.format("$%.2f", cofradia.getPrice()));
         //Picasso.with(getApplicationContext()).load("http://services.hanselandpetal.com/photos/" + cofradia.getPhoto()).into(mPhoto);
         
     }
@@ -43,7 +45,10 @@ public class DetailActivity extends AppCompatActivity {
         mFundacion = (TextView) findViewById(R.id.cofradiaFundacion);
         mSede = (TextView) findViewById(R.id.cofradiaSede);
         mPasos = (TextView) findViewById(R.id.cofradiaPasos);
-        //mPrice = (TextView) findViewById(R.id.CofradiaPrice);
+        mTexto = (TextView) findViewById(R.id.cofradiaTexto);
+        mHernamoAbad = (TextView) findViewById(R.id.cofradiaHermanoAbad);
+        mTunica = (TextView) findViewById(R.id.cofradiaTunica);
+
         //mPhoto = (ImageView) findViewById(R.id.CofradiaPhoto);
     }
 }

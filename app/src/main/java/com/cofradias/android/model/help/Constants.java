@@ -18,6 +18,6 @@ public class Constants {
     }
 
     public static final class IntroPhoto {
-        public static final String PHOTO_URL = "https://raw.githubusercontent.com/allaria/Retrofit2/master/fotos-Semana-Santa.jpg";
+        public static final String PHOTO_URL = "https://raw.githubusercontent.com/allaria/CofradiasBilbao/master/app/src/main/res/imagenes/introPhoto2.jpg";
     }
 }
