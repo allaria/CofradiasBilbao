@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity  implements CofradiaAdapter.
         configViews();
 
         mIntroPhoto = (ImageView) findViewById(R.id.introPhoto);
-        Picasso.with(getApplicationContext()).load(Constants.IntroPhoto.PHOTO_URL).into(mIntroPhoto);
+        Picasso.with(getApplicationContext()).load(R.drawable.intro_photo).into(mIntroPhoto);
 
         mManager = new RestManager();
         Call<List<Cofradia>> listCall = mManager.getCofradiaService().getAllCofradias();

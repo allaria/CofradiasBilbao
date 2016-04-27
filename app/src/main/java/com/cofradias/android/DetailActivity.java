@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cofradias.android.model.Cofradia;
 import com.cofradias.android.model.help.Constants;
@@ -33,13 +32,14 @@ public class DetailActivity extends AppCompatActivity {
         configViews();
 
         mVerMapa = (ImageView) findViewById(R.id.accessMap);
-        Picasso.with(getApplicationContext()).load(Constants.VerMapa.IMG_URL).into(mVerMapa);
+        Picasso.with(getApplicationContext()).load(R.drawable.ver_mapa).into(mVerMapa);
+
         mVerMapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(DetailActivity.this,
-                        "The favorite list would appear on clicking this icon",
-                        Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(DetailActivity.this, MapsActivity.class);
+                //intent.putExtra(Constants.REFERENCE.FLOWER, selectedFlower);
+                startActivity(intent);
             }
         });
 

@@ -18,6 +18,9 @@ public class Cofradia implements Serializable {
     private String sede;
 
     @Expose
+    private String imagenEscudo;
+
+    @Expose
     private int numeroPasos;
 
     @Expose
@@ -52,6 +55,14 @@ public class Cofradia implements Serializable {
 
     public void setSede(String sede) {
         this.sede = sede;
+    }
+
+    public String getEscudo() {
+        return imagenEscudo;
+    }
+
+    public void setEscudo(String escudo) {
+        this.imagenEscudo = imagenEscudo;
     }
 
     public int getNumeroPasos() {
@@ -90,10 +101,11 @@ public class Cofradia implements Serializable {
     public Cofradia() {
     }
 
-    public Cofradia(String nombreCofradia, int fundacion, String sede, int numeroPasos, String texto, String hermanoAbad, String tunica) {
+    public Cofradia(String nombreCofradia, int fundacion, String sede, String imagenEscudo, int numeroPasos, String texto, String hermanoAbad, String tunica) {
         this.nombreCofradia = nombreCofradia;
         this.fundacion = fundacion;
         this.sede = sede;
+        this.imagenEscudo = imagenEscudo;
         this.numeroPasos = numeroPasos;
         this.texto = texto;
         this.hermanoAbad = hermanoAbad;

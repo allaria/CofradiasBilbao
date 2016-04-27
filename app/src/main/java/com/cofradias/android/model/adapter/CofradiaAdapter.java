@@ -4,10 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cofradias.android.R;
 import com.cofradias.android.model.Cofradia;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,14 @@ public class CofradiaAdapter extends RecyclerView.Adapter<CofradiaAdapter.Holder
 
         Cofradia currCofradia = mCofradias.get(position);
 
+        String escudo = currCofradia.getEscudo();
+
+        int idDrawable = holder.itemView.getContext().getResources().getIdentifier(escudo, "drawable", holder.itemView.getContext().getPackageName());
+        Picasso.with(holder.itemView.getContext()).load(idDrawable).into(holder.mPhoto);
         holder.mName.setText(currCofradia.getNombreCofradia());
+
+        //Picasso.with(holder.itemView.getContext()).load("https://raw.githubusercontent.com/allaria/CofradiasBilbao/master/app/src/main/res/imagenes/verMapa.png").into(holder.mPhoto);
+        //Picasso.with(holder.itemView.getContext()).load(R.drawable.e_santa_vera_cruz).into(holder.mPhoto);
     }
 
     @Override
@@ -56,10 +65,12 @@ public class CofradiaAdapter extends RecyclerView.Adapter<CofradiaAdapter.Holder
 
     public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        private ImageView mPhoto;
         private TextView mName;
 
         public Holder(View itemView) {
             super(itemView);
+            mPhoto = (ImageView) itemView.findViewById(R.id.cofradiaEscudo);
             mName = (TextView) itemView.findViewById(R.id.cofradiaName);
             itemView.setOnClickListener(this);
         }
