@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cofradias.android.model.Cofradia;
+import com.cofradias.android.model.Coordenadas;
 import com.cofradias.android.model.Recorrido;
 import com.cofradias.android.model.adapter.RecorridoAdapter;
 import com.cofradias.android.model.help.Constants;
@@ -46,17 +47,17 @@ public class DetailActivity extends AppCompatActivity implements RecorridoAdapte
         Picasso.with(getApplicationContext()).load(idDrawable).into(mDetailPhoto);
 
         List<Recorrido> recorridosList = cofradia.getRecorridos();
-        //List<Coordenadas> coordenadasList;
+        List<Coordenadas> coordenadasList;
         for (int i=0; i<recorridosList.size(); i++){
             Recorrido recorrido = recorridosList.get(i);
-            mRecorridoAdapter.addRecorrido(recorrido);
 
             //Recogemos las coordenadas
-//            coordenadasList = recorrido.getCoordenadas();
-//            for (int x=0; x<coordenadasList.size(); x++){
-//                Coordenadas coordenadas = coordenadasList.get(x);
-//                mRecorridoAdapter.addRecorrido(coordenadas);
-//            }
+            coordenadasList = recorrido.getCoordenadas();
+            for (int x=0; x<coordenadasList.size(); x++){
+                Coordenadas coordenadas = coordenadasList.get(x);
+            }
+
+            mRecorridoAdapter.addRecorrido(recorrido);
         }
 
 //        for (int i=0; i<recorridosList.size(); i++){
