@@ -11,13 +11,10 @@ public class Constants {
 
     public static final class REFERENCE {
         public static final String COFRADIA = Config.PACKAGE_NAME + "cofradia";
+        public static final String RECORRIDO = Config.PACKAGE_NAME + "recorrido";
     }
 
     public static final class Config {
         public static final String PACKAGE_NAME = "com.cofradias.android.";
-    }
-
-    public static final class VerMapa {
-        public static final String IMG_URL = "https://raw.githubusercontent.com/allaria/CofradiasBilbao/master/app/src/main/res/imagenes/verMapa.png";
     }
 }

@@ -1,8 +1,11 @@
 package com.cofradias.android.model;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by alaria on 25/04/2016.
@@ -10,27 +13,25 @@ import java.io.Serializable;
 public class Cofradia implements Serializable {
     @Expose
     private String nombreCofradia;
-
     @Expose
     private int fundacion;
-
     @Expose
     private String sede;
-
     @Expose
     private String imagenEscudo;
-
+    @Expose
+    private String imagenDetalle;
     @Expose
     private int numeroPasos;
-
     @Expose
     private String texto;
-
     @Expose
     private String hermanoAbad;
-
     @Expose
     private String tunica;
+
+    @SerializedName("Recorrido")
+    private List<Recorrido> recorridos;
 
 
     public String getNombreCofradia() {
@@ -65,6 +66,14 @@ public class Cofradia implements Serializable {
         this.imagenEscudo = imagenEscudo;
     }
 
+    public String getImgagenDetalle() {
+        return imagenDetalle;
+    }
+
+    public void getImgagenDetalle(String imagenDetalle) {
+        this.imagenDetalle = imagenDetalle;
+    }
+
     public int getNumeroPasos() {
         return numeroPasos;
     }
@@ -97,11 +106,20 @@ public class Cofradia implements Serializable {
         this.tunica = tunica;
     }
 
-
-    public Cofradia() {
+    public List<Recorrido> getRecorridos() {
+        return recorridos;
     }
 
-    public Cofradia(String nombreCofradia, int fundacion, String sede, String imagenEscudo, int numeroPasos, String texto, String hermanoAbad, String tunica) {
+    public void setRecorridos(List<Recorrido> recorrido) {
+        this.recorridos = recorrido;
+    }
+
+
+    public Cofradia() {
+        this.recorridos = new ArrayList<Recorrido>();
+    }
+
+   /* public Cofradia(String nombreCofradia, int fundacion, String sede, String imagenEscudo, int numeroPasos, String texto, String hermanoAbad, String tunica, Recorrido[] recorrido) {
         this.nombreCofradia = nombreCofradia;
         this.fundacion = fundacion;
         this.sede = sede;
@@ -110,5 +128,6 @@ public class Cofradia implements Serializable {
         this.texto = texto;
         this.hermanoAbad = hermanoAbad;
         this.tunica = tunica;
-    }
+        this.recorrido = recorrido;
+    }*/
 }

@@ -14,7 +14,8 @@
         android:id="@+id/introPhoto"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/intro_photo" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"

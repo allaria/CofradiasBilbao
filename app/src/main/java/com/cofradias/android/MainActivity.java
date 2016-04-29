@@ -12,7 +12,6 @@ import com.cofradias.android.controller.RestManager;
 import com.cofradias.android.model.Cofradia;
 import com.cofradias.android.model.adapter.CofradiaAdapter;
 import com.cofradias.android.model.help.Constants;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity  implements CofradiaAdapter.CofradiaClickListener{
+public class MainActivity extends AppCompatActivity implements CofradiaAdapter.CofradiaClickListener{
     private RecyclerView mRecyclerView;
     private RestManager mManager;
     private CofradiaAdapter mCofradiaAdapter;
@@ -32,8 +31,8 @@ public class MainActivity extends AppCompatActivity  implements CofradiaAdapter.
         setContentView(R.layout.activity_main);
         configViews();
 
-        mIntroPhoto = (ImageView) findViewById(R.id.introPhoto);
-        Picasso.with(getApplicationContext()).load(R.drawable.intro_photo).into(mIntroPhoto);
+        //mIntroPhoto = (ImageView) findViewById(R.id.introPhoto);
+        //Picasso.with(getApplicationContext()).load(R.drawable.intro_photo).into(mIntroPhoto);
 
         mManager = new RestManager();
         Call<List<Cofradia>> listCall = mManager.getCofradiaService().getAllCofradias();
