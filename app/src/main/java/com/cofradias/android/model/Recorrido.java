@@ -13,7 +13,7 @@ public class Recorrido implements Serializable {
 
     private String nombreProcesion, imagenProcesion, ruta;
 
-    @SerializedName("Coordenada")
+    @SerializedName("coordenadas")
     private List<Coordenadas> coordenadas;
 
     public String getNombreProcesion() {

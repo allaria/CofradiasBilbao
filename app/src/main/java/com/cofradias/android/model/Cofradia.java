@@ -1,6 +1,5 @@
 package com.cofradias.android.model;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -11,23 +10,23 @@ import java.util.List;
  * Created by alaria on 25/04/2016.
  */
 public class Cofradia implements Serializable {
-    @Expose
+    //@Expose
     private String nombreCofradia;
-    @Expose
+    //@Expose
     private int fundacion;
-    @Expose
+    //@Expose
     private String sede;
-    @Expose
+    //@Expose
     private String imagenEscudo;
-    @Expose
+    //@Expose
     private String imagenDetalle;
-    @Expose
+    //@Expose
     private int numeroPasos;
-    @Expose
+    //@Expose
     private String texto;
-    @Expose
+    //@Expose
     private String hermanoAbad;
-    @Expose
+    //@Expose
     private String tunica;
 
     @SerializedName("Recorrido")

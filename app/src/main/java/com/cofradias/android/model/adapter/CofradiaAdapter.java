@@ -39,10 +39,13 @@ public class CofradiaAdapter extends RecyclerView.Adapter<CofradiaAdapter.Holder
 
         Cofradia currCofradia = mCofradias.get(position);
 
-        String escudo = currCofradia.getEscudo();
+        String escudoPhoto = currCofradia.getEscudo();
+        String homePhoto = currCofradia.getImgagenDetalle();
 
-        int idDrawable = holder.itemView.getContext().getResources().getIdentifier(escudo, "drawable", holder.itemView.getContext().getPackageName());
-        Picasso.with(holder.itemView.getContext()).load(idDrawable).into(holder.mPhoto);
+        int idDrawable = holder.itemView.getContext().getResources().getIdentifier(homePhoto, "drawable", holder.itemView.getContext().getPackageName());
+        Picasso.with(holder.itemView.getContext()).load(idDrawable).into(holder.mHomePhoto);
+        idDrawable = holder.itemView.getContext().getResources().getIdentifier(escudoPhoto, "drawable", holder.itemView.getContext().getPackageName());
+        Picasso.with(holder.itemView.getContext()).load(idDrawable).into(holder.mEscudoPhoto);
         holder.mName.setText(currCofradia.getNombreCofradia());
 
         //Picasso.with(holder.itemView.getContext()).load("https://raw.githubusercontent.com/allaria/CofradiasBilbao/master/app/src/main/res/imagenes/verMapa.png").into(holder.mPhoto);
@@ -65,12 +68,13 @@ public class CofradiaAdapter extends RecyclerView.Adapter<CofradiaAdapter.Holder
 
     public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ImageView mPhoto;
+        private ImageView mEscudoPhoto, mHomePhoto;
         private TextView mName;
 
         public Holder(View itemView) {
             super(itemView);
-            mPhoto = (ImageView) itemView.findViewById(R.id.cofradiaEscudo);
+            mHomePhoto = (ImageView) itemView.findViewById(R.id.cofradiaHomePhoto);
+            mEscudoPhoto = (ImageView) itemView.findViewById(R.id.cofradiaEscudo);
             mName = (TextView) itemView.findViewById(R.id.cofradiaName);
             itemView.setOnClickListener(this);
         }
