@@ -25,14 +25,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cofradia: "
-                style="@style/etiqueta" />
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cofradiaName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium Text"
-                style="@style/texto" />
+                android:textSize="16sp"
+                android:textColor="#777777"
+                android:textStyle="normal" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,14 +48,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fundación: "
-                style="@style/etiqueta" />
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cofradiaFundacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium Text"
-                style="@style/texto" />
+                android:textSize="16sp"
+                android:textColor="#777777"
+                android:textStyle="normal" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,14 +71,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sede: "
-                style="@style/etiqueta" />
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cofradiaSede"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium Text"
-                style="@style/texto" />
+                android:textSize="16sp"
+                android:textColor="#777777"
+                android:textStyle="normal" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -82,14 +94,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Número de Pasos: "
-                style="@style/etiqueta" />
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cofradiaPasos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium Text"
-                style="@style/texto" />
+                android:textSize="16sp"
+                android:textColor="#777777"
+                android:textStyle="normal" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -101,14 +117,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Descripción: "
-                style="@style/etiqueta" />
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cofradiaTexto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium Text"
-                style="@style/texto" />
+                android:textSize="16sp"
+                android:textColor="#777777"
+                android:textStyle="normal" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -120,14 +140,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hermano Abad: "
-                style="@style/etiqueta" />
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cofradiaHermanoAbad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium Text"
-                style="@style/texto" />
+                android:textSize="16sp"
+                android:textColor="#777777"
+                android:textStyle="normal" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -139,14 +163,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Vestimenta: "
-                style="@style/etiqueta" />
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cofradiaTunica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium Text"
-                style="@style/texto" />
+                android:textSize="16sp"
+                android:textColor="#777777"
+                android:textStyle="normal" />
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
