@@ -2,108 +2,81 @@ package com.cofradias.android;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.cofradias.android.model.Cofradia;
-import com.cofradias.android.model.Coordenadas;
+import com.cofradias.android.model.Fragment1;
 import com.cofradias.android.model.Recorrido;
 import com.cofradias.android.model.adapter.RecorridoAdapter;
+import com.cofradias.android.model.adapter.ViewPagerDetailAdpter;
 import com.cofradias.android.model.help.Constants;
-import com.squareup.picasso.Picasso;
-
-import java.util.List;
 
 /**
  * Created by alaria on 21/04/2016.
  */
-public class DetailActivity extends AppCompatActivity implements RecorridoAdapter.RecorridoClickListener,
-        NavigationView.OnNavigationItemSelectedListener{
+public class DetailActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Fragment1.interfaceFragment1{
 
-    private RecyclerView mRecyclerView;
-    private RecorridoAdapter mRecorridoAdapter;
-
-    private ImageView mVerMapa, mDetailPhoto;
-    private TextView mName, mFundacion, mSede, mPasos, mTexto, mHernamoAbad, mTunica, mRecorrido;
+    Toolbar toolbar;
+    ViewPager viewPager;
+    TabLayout tabLayout;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
 
         Intent intent = getIntent();
 
         Cofradia cofradia = (Cofradia) intent.getSerializableExtra(Constants.REFERENCE.COFRADIA);
+        Cofradia[] cofradiaList = new Cofradia[1];
+        cofradiaList[0]=cofradia;
 
-        configViews();
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_detail);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_detail);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_detail);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        //drawer.setDrawerListener(toggle);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_detail);
         navigationView.setNavigationItemSelectedListener(this);
 
-        String detailImg = cofradia.getImgagenDetalle();
-        int idDrawable = getResources().getIdentifier(detailImg, "drawable", getApplicationContext().getPackageName());
+        viewPager = (ViewPager) findViewById(R.id.viewpager_detail);
 
-        mDetailPhoto = (ImageView) findViewById(R.id.detailPhoto);
-        Picasso.with(getApplicationContext()).load(idDrawable).into(mDetailPhoto);
+        final ViewPagerDetailAdpter viewPagerDetailAdpter = new ViewPagerDetailAdpter(this,getSupportFragmentManager(),this.getApplicationContext(), cofradiaList);
+        viewPager.setAdapter(viewPagerDetailAdpter);
 
-        List<Recorrido> recorridosList = cofradia.getRecorridos();
-        List<Coordenadas> coordenadasList;
-        for (int i=0; i<recorridosList.size(); i++){
-            Recorrido recorrido = recorridosList.get(i);
-
-            //Recogemos las coordenadas
-            coordenadasList = recorrido.getCoordenadas();
-            for (int x=0; x<coordenadasList.size(); x++){
-                Coordenadas coordenadas = coordenadasList.get(x);
-            }
-
-            mRecorridoAdapter.addRecorrido(recorrido);
-        }
-
-//        for (int i=0; i<recorridosList.size(); i++){
-//            Recorrido recorrido = recorridosList.get(i);
-//            mRecorridoAdapter.addRecorrido(recorrido);
-//        }
-
-/*        mVerMapa = (ImageView) findViewById(R.id.accessMap);
-        Picasso.with(getApplicationContext()).load(R.drawable.ver_mapa).into(mVerMapa);
-
-        mVerMapa.setOnClickListener(new View.OnClickListener() {
+        tabLayout = (TabLayout) findViewById(R.id.tablayout_detail);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DetailActivity.this, MapsActivity.class);
-                //intent.putExtra(Constants.REFERENCE.FLOWER, selectedRecorrido);
-                startActivity(intent);
-            }
-        });*/
+            public void onTabSelected(TabLayout.Tab tab) {
 
-        mName.setText(cofradia.getNombreCofradia());
-        mFundacion.setText(String.valueOf(cofradia.getFundacion()));
-        mSede.setText(cofradia.getSede());
-        mPasos.setText(String.valueOf(cofradia.getNumeroPasos()));
-        mTexto.setText(cofradia.getTexto());
-        mHernamoAbad.setText(cofradia.getHermanoAbad());
-        mTunica.setText(cofradia.getTunica());
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     @Override
@@ -141,31 +114,13 @@ public class DetailActivity extends AppCompatActivity implements RecorridoAdapte
         return true;
     }
 
-    private void configViews() {
-        mName = (TextView) findViewById(R.id.cofradiaName);
-        mFundacion = (TextView) findViewById(R.id.cofradiaFundacion);
-        mSede = (TextView) findViewById(R.id.cofradiaSede);
-        mPasos = (TextView) findViewById(R.id.cofradiaPasos);
-        mTexto = (TextView) findViewById(R.id.cofradiaTexto);
-        mHernamoAbad = (TextView) findViewById(R.id.cofradiaHermanoAbad);
-        mTunica = (TextView) findViewById(R.id.cofradiaTunica);
-
-
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewDetail);
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setRecycledViewPool(new RecyclerView.RecycledViewPool());
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        mRecorridoAdapter = new RecorridoAdapter(this);
-
-        mRecyclerView.setAdapter(mRecorridoAdapter);
-    }
-
     @Override
-    public void onClick(int position) {
-        Recorrido selectedRecorrido = mRecorridoAdapter.getSelectedRecorrido(position);
+    public void onClick(int position, RecorridoAdapter mRecorridoAdapter) {
 
-        Intent intent = new Intent(DetailActivity.this, MapsActivity.class);
-        intent.putExtra(Constants.REFERENCE.RECORRIDO, selectedRecorrido);
-        startActivity(intent);
+            Recorrido selectedRecorrido = mRecorridoAdapter.getSelectedRecorrido(position);
+
+            Intent intent = new Intent(DetailActivity.this, MapsActivity.class);
+            intent.putExtra(Constants.REFERENCE.RECORRIDO, selectedRecorrido);
+            startActivity(intent);
     }
 }

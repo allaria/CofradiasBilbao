@@ -3,6 +3,10 @@
     <string name="app_detail">Cofradías de Bilbao</string>
     <string name="title_activity_maps">Map</string>
 
+    <!-- Tabs Detail -->
+    <string name="tab_detail_one">Cofradía</string>
+    <string name="tab_detail_two">Detalle</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
