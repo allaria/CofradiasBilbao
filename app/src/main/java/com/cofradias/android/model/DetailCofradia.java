@@ -18,18 +18,19 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class Fragment1 extends Fragment implements RecorridoAdapter.RecorridoClickListener {
+public class DetailCofradia extends Fragment implements RecorridoAdapter.RecorridoClickListener {
 
     private Cofradia cofradia;
 
     private RecyclerView mRecyclerView;
     private RecorridoAdapter mRecorridoAdapter;
 
-    private ImageView mVerMapa, mDetailPhoto;
-    private TextView mName, mFundacion, mSede, mPasos, mTexto, mHernamoAbad, mTunica, mRecorrido;
+    private ImageView mVerMapa, mEscudoDetailPhoto, mDetailPhoto;
+    private TextView mName, mFundacion, mSede, mPasos, mTexto, mHernamoAbad, mTunica, mNumeroProcesiones, mRecorrido;
 
     View contentView;
-    private interfaceFragment1 listener;
+
+    private InterfaceDetailCofradia listener;
 
     public void setCofradia(Cofradia cofradia) {
         this.cofradia = cofradia;
@@ -40,17 +41,23 @@ public class Fragment1 extends Fragment implements RecorridoAdapter.RecorridoCli
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         //contentView = inflater.inflate(R.layout.fragment1_layout, null);
-        contentView = inflater.inflate(R.layout.content_detail,container, false);
+        contentView = inflater.inflate(R.layout.content_cofradia_detail,container, false);
 
         configViews();
 
-        String detailImg = cofradia.getImgagenDetalle();
-        //int idDrawable = getResources().getIdentifier(detailImg, "drawable", getApplicationContext().getPackageName());
+//        String detailImg = cofradia.getImgagenDetalle();
+//        //int idDrawable = getResources().getIdentifier(detailImg, "drawable", getApplicationContext().getPackageName());
+//        int idDrawable = getResources().getIdentifier(detailImg, "drawable", getContext().getPackageName());
+
+//        mDetailPhoto = (ImageView) contentView.findViewById(R.id.detailPhoto);
+//        //Picasso.with(getApplicationContext()).load(idDrawable).into(mDetailPhoto);
+//        Picasso.with(getContext()).load(idDrawable).into(mDetailPhoto);
+
+        String detailImg = cofradia.getEscudo();
         int idDrawable = getResources().getIdentifier(detailImg, "drawable", getContext().getPackageName());
 
-        mDetailPhoto = (ImageView) contentView.findViewById(R.id.detailPhoto);
-        //Picasso.with(getApplicationContext()).load(idDrawable).into(mDetailPhoto);
-        Picasso.with(getContext()).load(idDrawable).into(mDetailPhoto);
+        mEscudoDetailPhoto = (ImageView) contentView.findViewById(R.id.escudoDetailPhoto);
+        Picasso.with(getContext()).load(idDrawable).into(mEscudoDetailPhoto);
 
         List<Recorrido> recorridosList = cofradia.getRecorridos();
         List<Coordenadas> coordenadasList;
@@ -69,10 +76,11 @@ public class Fragment1 extends Fragment implements RecorridoAdapter.RecorridoCli
         mName.setText(cofradia.getNombreCofradia());
         mFundacion.setText(String.valueOf(cofradia.getFundacion()));
         mSede.setText(cofradia.getSede());
-        mPasos.setText(String.valueOf(cofradia.getNumeroPasos()));
-        mTexto.setText(cofradia.getTexto());
+        //mPasos.setText(String.valueOf(cofradia.getNumeroPasos()));
+        //mTexto.setText(cofradia.getTexto());
         mHernamoAbad.setText(cofradia.getHermanoAbad());
         mTunica.setText(cofradia.getTunica());
+        mNumeroProcesiones.setText(String.valueOf(cofradia.getNumeroProcesiones()));
 
         return contentView;
     }
@@ -84,20 +92,20 @@ public class Fragment1 extends Fragment implements RecorridoAdapter.RecorridoCli
     }
 
     private void configViews() {
+
         mName = (TextView) contentView.findViewById(R.id.cofradiaName);
         mFundacion = (TextView) contentView.findViewById(R.id.cofradiaFundacion);
         mSede = (TextView) contentView.findViewById(R.id.cofradiaSede);
-        mPasos = (TextView) contentView.findViewById(R.id.cofradiaPasos);
-        mTexto = (TextView) contentView.findViewById(R.id.cofradiaTexto);
+        //mPasos = (TextView) contentView.findViewById(R.id.cofradiaPasos);
+        //mTexto = (TextView) contentView.findViewById(R.id.cofradiaTexto);
         mHernamoAbad = (TextView) contentView.findViewById(R.id.cofradiaHermanoAbad);
         mTunica = (TextView) contentView.findViewById(R.id.cofradiaTunica);
-
+        mNumeroProcesiones = (TextView) contentView.findViewById(R.id.cofradiaProcesiones);
 
         mRecyclerView = (RecyclerView) contentView.findViewById(R.id.recyclerViewDetail);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setRecycledViewPool(new RecyclerView.RecycledViewPool());
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-        //mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         mRecorridoAdapter = new RecorridoAdapter(this);
 
         mRecyclerView.setAdapter(mRecorridoAdapter);
@@ -109,11 +117,11 @@ public class Fragment1 extends Fragment implements RecorridoAdapter.RecorridoCli
         listener.onClick(position, mRecorridoAdapter);
     }
 
-    public void setListener(interfaceFragment1 listener) {
+    public void setListener(InterfaceDetailCofradia listener) {
         this.listener = listener;
     }
 
-    public interface interfaceFragment1 {
+    public interface InterfaceDetailCofradia {
 
         public void onClick(int position, RecorridoAdapter mRecorridoAdapter);
     }

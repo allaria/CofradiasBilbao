@@ -6,6 +6,7 @@
     <!-- Tabs Detail -->
     <string name="tab_detail_one">Cofradía</string>
     <string name="tab_detail_two">Detalle</string>
+    <string name="tab_detail_three">Galería</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

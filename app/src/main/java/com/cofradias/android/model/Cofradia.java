@@ -28,6 +28,7 @@ public class Cofradia implements Serializable {
     private String hermanoAbad;
     //@Expose
     private String tunica;
+    private int numeroProcesiones;
 
     @SerializedName("Recorrido")
     private List<Recorrido> recorridos;
@@ -95,6 +96,14 @@ public class Cofradia implements Serializable {
 
     public void setHermanoAbad(String hermanoAbad) {
         this.hermanoAbad = hermanoAbad;
+    }
+
+    public int getNumeroProcesiones() {
+        return numeroProcesiones;
+    }
+
+    public void getNumeroProcesiones(int numeroProcesiones) {
+        this.numeroProcesiones = numeroProcesiones;
     }
 
     public String getTunica() {

@@ -10,18 +10,17 @@ import android.view.ViewGroup;
 
 import com.cofradias.android.R;
 
-public class Fragment2 extends Fragment {
+public class Fragment3 extends Fragment {
 
-    View contentView2;
+    View contentView3;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        contentView2 = inflater.inflate(R.layout.fragment2_layout, null);
+        contentView3 = inflater.inflate(R.layout.fragment3_layout, null);
 
-
-        return contentView2;
+        return contentView3;
     }
 
     @Override

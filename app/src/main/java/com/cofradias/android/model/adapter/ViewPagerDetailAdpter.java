@@ -8,29 +8,33 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.cofradias.android.R;
 import com.cofradias.android.model.Cofradia;
-import com.cofradias.android.model.Fragment1;
-import com.cofradias.android.model.Fragment2;
+import com.cofradias.android.model.DetailCofradia;
+import com.cofradias.android.model.DetailDetalle;
+import com.cofradias.android.model.Fragment3;
 
 public class ViewPagerDetailAdpter extends FragmentPagerAdapter {
 
     public Context context;
-    private String tab1;
-    private String tab2;
-    private String[] tabtitlearray = new String[2];
+    private String tab1, tab2, tab3;
+    //private String tab2;
+    private String[] tabtitlearray = new String[3];
 
     Cofradia[] cofradiaList;
-    Fragment1.interfaceFragment1 act;
+    DetailCofradia.InterfaceDetailCofradia activity;
 
-    public ViewPagerDetailAdpter(Fragment1.interfaceFragment1 act, FragmentManager manager, Context context, Cofradia[] cofradiaList){
+    public ViewPagerDetailAdpter(DetailCofradia.InterfaceDetailCofradia activity, FragmentManager manager, Context context, Cofradia[] cofradiaList){
         super(manager);
         this.context = context;
         this.cofradiaList = cofradiaList;
-        this.act=act;
+        this.activity=activity;
 
         tab1 = context.getString(R.string.tab_detail_one);
         tab2 = context.getString(R.string.tab_detail_two);
+        tab3 = context.getString(R.string.tab_detail_three);
+
         tabtitlearray[0]=tab1;
         tabtitlearray[1]=tab2;
+        tabtitlearray[2]=tab3;
     }
 
 
@@ -40,12 +44,20 @@ public class ViewPagerDetailAdpter extends FragmentPagerAdapter {
         switch (position){
 
             case 0: {
-                Fragment1 fragment1 = new Fragment1();
-                fragment1.setCofradia(cofradiaList[position]);
-                fragment1.setListener(act);
-                return fragment1;
+                DetailCofradia fragmentDetailCofradia = new DetailCofradia();
+                fragmentDetailCofradia.setCofradia(cofradiaList[position]);
+                fragmentDetailCofradia.setListener(activity);
+                return fragmentDetailCofradia;
             }
-            case 1: return new Fragment2();
+            case 1: {
+                DetailDetalle fragmentDetailDetalle = new DetailDetalle();
+                fragmentDetailDetalle.setCofradia(cofradiaList[0]);
+                return fragmentDetailDetalle;
+            }
+            case 2: {
+                return new Fragment3();
+            }
+
         }
 
 
@@ -54,7 +66,7 @@ public class ViewPagerDetailAdpter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
     @Override

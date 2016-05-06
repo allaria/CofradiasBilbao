@@ -13,7 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.cofradias.android.model.Cofradia;
-import com.cofradias.android.model.Fragment1;
+import com.cofradias.android.model.DetailCofradia;
 import com.cofradias.android.model.Recorrido;
 import com.cofradias.android.model.adapter.RecorridoAdapter;
 import com.cofradias.android.model.adapter.ViewPagerDetailAdpter;
@@ -22,7 +22,7 @@ import com.cofradias.android.model.help.Constants;
 /**
  * Created by alaria on 21/04/2016.
  */
-public class DetailActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Fragment1.interfaceFragment1{
+public class DetailActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DetailCofradia.InterfaceDetailCofradia {
 
     Toolbar toolbar;
     ViewPager viewPager;
