@@ -1,186 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <LinearLayout
+    <include
+        layout="@layout/app_bar_detail"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view_detail"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_detail"
+        app:menu="@menu/activity_detail_drawer" />
 
-        <ImageView
-            android:id="@+id/detailPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="3dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cofradia: "
-                android:textSize="16sp"
-                android:textColor="#333333"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cofradiaName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Medium Text"
-                android:textSize="16sp"
-                android:textColor="#777777"
-                android:textStyle="normal" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="3dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fundación: "
-                android:textSize="16sp"
-                android:textColor="#333333"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cofradiaFundacion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Medium Text"
-                android:textSize="16sp"
-                android:textColor="#777777"
-                android:textStyle="normal" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="3dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sede: "
-                android:textSize="16sp"
-                android:textColor="#333333"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cofradiaSede"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Medium Text"
-                android:textSize="16sp"
-                android:textColor="#777777"
-                android:textStyle="normal" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="3dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Número de Pasos: "
-                android:textSize="16sp"
-                android:textColor="#333333"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cofradiaPasos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Medium Text"
-                android:textSize="16sp"
-                android:textColor="#777777"
-                android:textStyle="normal" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="3dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Descripción: "
-                android:textSize="16sp"
-                android:textColor="#333333"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cofradiaTexto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Medium Text"
-                android:textSize="16sp"
-                android:textColor="#777777"
-                android:textStyle="normal" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="3dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hermano Abad: "
-                android:textSize="16sp"
-                android:textColor="#333333"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cofradiaHermanoAbad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Medium Text"
-                android:textSize="16sp"
-                android:textColor="#777777"
-                android:textStyle="normal" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="3dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vestimenta: "
-                android:textSize="16sp"
-                android:textColor="#333333"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cofradiaTunica"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Medium Text"
-                android:textSize="16sp"
-                android:textColor="#777777"
-                android:textStyle="normal" />
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerViewDetail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none" />
-    </LinearLayout>
-</ScrollView>
+</android.support.v4.widget.DrawerLayout>

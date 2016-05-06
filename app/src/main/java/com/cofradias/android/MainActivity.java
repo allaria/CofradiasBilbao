@@ -25,7 +25,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements CofradiaAdapter.CofradiaClickListener, NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements CofradiaAdapter.CofradiaClickListener,
+        NavigationView.OnNavigationItemSelectedListener{
+
     private RecyclerView mRecyclerView;
     private RestManager mManager;
     private CofradiaAdapter mCofradiaAdapter;

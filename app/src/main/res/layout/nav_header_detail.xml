@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:src="@drawable/logo"
-        android:id="@+id/imageView" />
+        android:id="@+id/imageView_detail" />
 
     <TextView
         android:layout_width="match_parent"
@@ -27,11 +27,11 @@
         android:text="@string/app_name" />
 
     <TextView
+        android:id="@+id/textView_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:textStyle="normal"
-        android:text="@string/app_detail"
-        android:id="@+id/textView" />
+        android:text="@string/app_detail" />
 
 </LinearLayout>

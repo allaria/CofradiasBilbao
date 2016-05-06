@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/detailPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/etiqueta"
+                android:text="Cofradia: " />
+
+            <TextView
+                android:id="@+id/cofradiaName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/texto"
+                android:text="Medium Text" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/etiqueta"
+                android:text="Fundación: " />
+
+            <TextView
+                android:id="@+id/cofradiaFundacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/texto"
+                android:text="Medium Text" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/etiqueta"
+                android:text="Sede: " />
+
+            <TextView
+                android:id="@+id/cofradiaSede"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/texto"
+                android:text="Medium Text" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/etiqueta"
+                android:text="Número de Pasos: " />
+
+            <TextView
+                android:id="@+id/cofradiaPasos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/texto"
+                android:text="Medium Text" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/etiqueta"
+                android:text="Descripción: " />
+
+            <TextView
+                android:id="@+id/cofradiaTexto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/texto"
+                android:text="Medium Text" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/etiqueta"
+                android:text="Hermano Abad: " />
+
+            <TextView
+                android:id="@+id/cofradiaHermanoAbad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/texto"
+                android:text="Medium Text" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/etiqueta"
+                android:text="Vestimenta: " />
+
+            <TextView
+                android:id="@+id/cofradiaTunica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/texto"
+                android:text="Medium Text" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerViewDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none" />
+    </LinearLayout>
+</ScrollView>
